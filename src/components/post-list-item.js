@@ -22,7 +22,7 @@ const PostListItem = (props) => {
             transitionName="item"
         >
 
-                    <td><Link to={`post/${post.id}`}>{post.title}</Link></td>
+                    <td><Link to={`${process.env.PUBLIC_URL}/post/${post.id}`}>{post.title}</Link></td>
 
                     <td>
                         <button onClick={() => handleDelete(post)} data-id={post.id}

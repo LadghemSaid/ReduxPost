@@ -13,11 +13,11 @@ var createBrowserHistory = require("history").createBrowserHistory;
 export default class Routes extends Component {
     render() {
         return (
-            <Router history={createBrowserHistory()}>
+            <Router basename={'/redux-post'} history={createBrowserHistory()}>
                 <Switch>
-                    <Route exact path="/" component={PostList}/>
-                    <Route path="/create-post" component={PostForm}/>
-                    <Route path="/post/:id" component={Post}/>
+                    <Route exact path={`${process.env.PUBLIC_URL}`} component={PostList}/>
+                    <Route path={`${process.env.PUBLIC_URL}/create-post`} component={PostForm}/>
+                    <Route path={`${process.env.PUBLIC_URL}/post/:id`} component={Post}/>
 
                     <Route component={NotFound}/>
                 </Switch>
