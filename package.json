@@ -1,6 +1,6 @@
 {
   "homepage": "http://34.77.181.91/redux-post",
-  "name": "currency",
+  "name": "redux-post",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,6 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "startDb": "json-server --watch src/config/fixtureDb.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 //Bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import style from "./style/style.scss"
+import "./style/style.scss"
 
 //Redux part
 import {Provider} from 'react-redux'

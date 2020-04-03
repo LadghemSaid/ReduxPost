@@ -1,37 +1,60 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {
-    CSSTransition,
-    TransitionGroup,
-} from 'react-transition-group';
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import {Transition} from 'react-transition-group';
 
-const PostListItem = (props) => {
-    function handleDelete() {
-        props.deletePostCallBack(post)
+
+class PostListItem extends Component {
+    constructor() {
+        super();
+        this.state = {
+            transition: false
+        }
+
     }
 
-    const {post} = props
-    return (
-        <ReactCSSTransitionGroup
-            component='tr'
-            transitionAppear={true}
-            transitionAppearTimeout={1000}
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={1000}
-            transitionName="item"
-        >
+    handleDelete() {
 
-                    <td><Link to={`${process.env.PUBLIC_URL}/post/${post.id}`}>{post.title}</Link></td>
+        this.setState({
+                transition: true
+            }, () => {
+                setTimeout(function () {
+                    this.props.deletePostCallBack(this.props.post)
+                }.bind(this), 200);
+
+            }
+        )
+    }
+
+
+    componentDidMount() {
+        const {post} = this.props
+
+    }
+
+    render() {
+
+        return (
+            <Transition
+                timeout={200}
+                in={!this.state.transition}
+            >{(status) => {
+                return (<tr className={`fade-${status}`}>
+                    <td><Link to={`${process.env.PUBLIC_URL}/post/${this.props.post.id}`}>{this.props.post.title}</Link>
+                    </td>
 
                     <td>
-                        <button onClick={() => handleDelete(post)} data-id={post.id}
+                        <button onClick={() => this.handleDelete(this.props.post)} data-id={this.props.post.id}
                                 className="btn btn-danger">Supprimer
                         </button>
                     </td>
+                </tr>)
+            }}
+            </Transition>
 
-        </ReactCSSTransitionGroup>
 
-    )
+        )
+    }
+
 }
+
 export default (PostListItem)

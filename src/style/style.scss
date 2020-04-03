@@ -13,37 +13,34 @@ body {
   align-items: center;
 }
 
-.fade-enter {
-  opacity: 0.1;
 
-  &.-active {
+.fade {
+  &-entering {
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all .2s ease-in-out;
+
+  }
+
+  &-entered {
+    transform: translateX(0px);
     opacity: 1;
-    transition: all 0.2s ease-in;
+    transition: all .2s ease-in-out;
 
   }
-}
-
-.fade-leave {
-
-  &.-active {
+  &-exiting {
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all .2s ease-in-out;
 
   }
+  &-exited {
+    display: none;
+    transition: all .2s ease-in-out;
+
+  }
+
 }
 
 
-.item-enter {
-  opacity: 0;
-  color:red;
-}
-.item-enter-active {
-  opacity: 1;
-  color:red;
-  transition: opacity 500ms ease-in;
-}
-.item-exit {
-  opacity: 1;
-}
-.item-exit-active {
-  opacity: 0;
-  transition: opacity 500ms ease-in;
-}
+

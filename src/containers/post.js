@@ -16,7 +16,7 @@ class Post extends Component {
     render() {
         return (
             <div className="container mt-5">
-                <Link className="btn btn-info" to={"/"}>Retour</Link>
+                <Link className="btn btn-info" to={`${process.env.PUBLIC_URL}`}>Retour</Link>
 
                 {this.props.postStore.length !== 0 ? (
                     <PostContent post={this.props.postStore}/>

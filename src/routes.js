@@ -1,6 +1,5 @@
 import React, {Component} from "react"
-import {Router, Route, Link, IndexRoute,Switch} from "react-router"
-import {BrowserRouter } from "react-router-dom"
+import {Router, Route,Switch} from "react-router"
 
 import NotFound from "./components/NotFound";
 import PostList from "./containers/post-list";
