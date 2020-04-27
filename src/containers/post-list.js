@@ -5,6 +5,7 @@ import PostListItem from "../components/post-list-item";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
 import {Transition} from 'react-transition-group';
+import {Link} from 'react-router-dom';
 
 class PostList extends Component {
     constructor(props) {
@@ -21,15 +22,17 @@ class PostList extends Component {
     renderPosts() {
         const {postsStore} = this.props
 
-        return postsStore.map(p => {
+        if (postsStore) {
+            return postsStore.map(p => {
 
-            return (
-                <PostListItem  key={p.id} post={p} deletePostCallBack={(post) => {
-                    this.deletePostCallBack(post)
-                }}/>
+                return (
+                    <PostListItem key={p.id} post={p} deletePostCallBack={(post) => {
+                        this.deletePostCallBack(post)
+                    }}/>
 
-            )
-        })
+                )
+            })
+        }
 
 
     }
@@ -43,6 +46,10 @@ class PostList extends Component {
         return (
             <div className="container">
                 <h1>Liste des posts</h1>
+                <div className="button_add">
+                    <Link to={`${process.env.PUBLIC_URL}/create-post`} className={'btn btn-primary btn-circle'}>+</Link>
+
+                </div>
                 {this.props.postsStore.length > 0 ? (
                     <table className="table table-hover table-striped">
                         <thead>
@@ -58,7 +65,8 @@ class PostList extends Component {
                         >{(status) => {
                             return (
                                 <tbody className={`fade-${status}`}>
-                              {  this.renderPosts() }  </tbody>
+                                {this.renderPosts()}
+                                </tbody>
                             )
                         }}
                         </Transition>
