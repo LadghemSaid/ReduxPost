@@ -6,7 +6,9 @@ export const AT_POSTS = {
     READ: 'READ_POST',
     READ_ALL: 'READ_ALL_POST'
 };
-const END_POINT = "http://jsonplaceholder.typicode.com";
+const END_POINT = "http://localhost:8001";
+//const END_POINT = "http://jsonplaceholder.typicode.com";
+
 
 export function fetchPosts() {
     return (dispatch) => {

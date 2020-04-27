@@ -2,6 +2,7 @@ import React from 'react'
 
 const PostContent = (post) => {
     post = post.post;
+    console.log(post)
     return (
         <div>
             <h1>{post.title}</h1>

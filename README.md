@@ -1,3 +1,7 @@
+
+json-server --watch -p 8001 src/config/fixtureDb.js
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
