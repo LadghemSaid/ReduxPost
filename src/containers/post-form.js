@@ -1,45 +1,47 @@
 import React, {Component} from 'react'
-import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {reduxForm} from "redux-form";
+import {reduxForm, Field} from 'redux-form'
 import {createPost} from "../actions";
 import {bindActionCreators} from "redux";
-
-const formConfig ={
-    form:"createPostForm",
-    fields:['title','description','author']
-}
-
-class PostForm extends Component {
+import {connect} from "react-redux";
 
 
-    componentDidMount() {
-
-    }
-
-
+class PostForm extends React.Component {
     render() {
+        const { handleSubmit, pristine, reset, submitting } = this.props
 
-        console.log(this.props)
-        const {fields} = this.props;
         return (
             <div className={'container'}>
                 <h1>Ajoutez un post</h1>
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="title">Titre</label>
-                        <input type="text" className="form-control"  {...fields.title}/>
-                        <div></div>
+                        <Field
+                            name="title"
+                            component="input"
+                            type="text"
+                            placeholder="title"
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">description</label>
-                        <input type="textarea" className="form-control" {...fields.description}/>
-                        <div></div>
+                        <Field
+                            name="description"
+                            component="input"
+                            type="text"
+                            placeholder="description"
+                        />
+
                     </div>
                     <div className="form-group">
                         <label htmlFor="author">Auteur</label>
-                        <input type="textarea" className="form-control" {...fields.author}/>
-                        <div></div>
+                        <Field
+                            name="author"
+                            component="input"
+                            type="text"
+                            placeholder="author"
+                        />
+
                     </div>
                     <Link to={`${process.env.PUBLIC_URL}`} className={' btn btn-secondary'}>Retour</Link>
                     <button type={"submit"} className={'ml-5 btn btn-primary'}>Envoyer</button>
@@ -48,13 +50,10 @@ class PostForm extends Component {
         )
     }
 
-
 }
 
-function mapStateToProps(store) {
-    return {}
-}
 
-const mapDispatchToProps = {}
+export default reduxForm({
+    form: 'PostForm',
+})(PostForm)
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(formConfig)(PostForm))

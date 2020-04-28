@@ -1,5 +1,5 @@
 {
-  "homepage": "http://34.77.181.91/redux-post",
+  "homepage": "https://s-website.ga/redux-post",
   "name": "redux-post",
   "version": "0.1.0",
   "private": true,
@@ -15,7 +15,7 @@
     "history": "^4.10.1",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
-    "react": "^16.13.1",
+    "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^1.0.0",
     "react-chartkick": "^0.4.0",
@@ -26,13 +26,13 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.3.0",
-    "redux": "^4.0.5",
-    "redux-form": "^8.3.5",
+    "redux": "^4.0.4",
+    "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "startDb": "json-server --watch src/config/fixtureDb.js",
+    "startDb": "json-server --watch -p 8001 src/config/fixtureDb.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

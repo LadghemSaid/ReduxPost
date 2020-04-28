@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Router, Route,Switch} from "react-router"
+import {Router, Route, Switch} from "react-router"
 
 import NotFound from "./components/NotFound";
 import PostList from "./containers/post-list";
@@ -17,8 +17,10 @@ export default class Routes extends Component {
             <Router basename={'/redux-post'} history={createBrowserHistory()}>
                 <Switch>
                     <Route exact path={`${process.env.PUBLIC_URL}`} component={PostList}/>
-                    <Route  path={`${process.env.PUBLIC_URL}/create-post`} component={PostForm}/>
-                    <Route  path={`${process.env.PUBLIC_URL}/post/:id`} component={Post}/>
+
+                    <Route path={`${process.env.PUBLIC_URL}/create-post`} component={PostForm}/>
+
+                    <Route path={`${process.env.PUBLIC_URL}/post/:id`} component={Post}/>
 
                     <Route component={NotFound}/>
                 </Switch>
