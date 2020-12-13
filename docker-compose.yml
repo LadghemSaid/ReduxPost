@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+  redux-post:
+    container_name: redux-post
+    build: ./
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    expose:
+      - "8080"
+    environment:
+         VIRTUAL_HOST: redux-post.s-website.ga
+    networks:
+      - nginx_main
+      - backend
+  redux-post-db:
+    container_name: redux-post-db
+    build: ./
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    expose:
+      - "8080"
+    environment:
+         VIRTUAL_HOST: redux-post.s-website.ga
+    networks:
+      - nginx_main
+      - backend
+
+networks:
+  nginx_main:
+    external: true
+  backend:
+    external: true
