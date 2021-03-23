@@ -8,22 +8,9 @@ services:
       - ".:/app"
       - "/app/node_modules"
     expose:
-      - "8080"
+      - ${PORT}
     environment:
-         VIRTUAL_HOST: redux-post.s-website.ga
-    networks:
-      - nginx_main
-      - backend
-  redux-post-db:
-    container_name: redux-post-db
-    build: ./
-    volumes:
-      - ".:/app"
-      - "/app/node_modules"
-    expose:
-      - "8080"
-    environment:
-         VIRTUAL_HOST: redux-post.s-website.ga
+         VIRTUAL_HOST: ${URL_FRONTEND}
     networks:
       - nginx_main
       - backend
